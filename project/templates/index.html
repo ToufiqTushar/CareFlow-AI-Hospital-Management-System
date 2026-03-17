@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareFlow AI - Patient Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 CareFlow AI - Hospital Management System</h1>
+            <p>Intelligent Patient Triage and Resource Allocation</p>
+        </div>
+        
+        <div class="form-container">
+            <h2>📋 Patient Entry Form</h2>
+            <form action="/process" method="post" class="patient-form">
+                <div class="form-group">
+                    <label for="age">👤 Age:</label>
+                    <input type="number" name="age" id="age" min="0" max="120" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="spo2">💨 SPO2 (%):</label>
+                    <input type="number" name="spo2" id="spo2" min="0" max="100" required>
+                    <span class="hint">Normal: 95-100%</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pulse">❤️ Pulse Rate (bpm):</label>
+                    <input type="number" name="pulse" id="pulse" min="30" max="200" required>
+                    <span class="hint">Normal: 60-100 bpm</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bp">💓 Blood Pressure (mmHg):</label>
+                    <input type="text" name="bp" id="bp" placeholder="120/80" required>
+                    <span class="hint">Format: systolic/diastolic</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="symptoms">🤒 Symptoms:</label>
+                    <textarea name="symptoms" id="symptoms" rows="3" 
+                             placeholder="Describe symptoms (e.g., chest pain, difficulty breathing, fever...)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">🚀 Analyze Patient</button>
+                </div>
+            </form>
+            
+            <div class="instructions">
+                <h3>📝 Quick Guide:</h3>
+                <ul>
+                    <li><span class="red-dot"></span> <strong>RED:</strong> Immediate treatment (Critical)</li>
+                    <li><span class="yellow-dot"></span> <strong>YELLOW:</strong> Urgent treatment (< 30 min)</li>
+                    <li><span class="green-dot"></span> <strong>GREEN:</strong> Standard treatment (1-2 hours)</li>
+                    <li><span class="blue-dot"></span> <strong>BLUE:</strong> Non-urgent</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

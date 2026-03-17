@@ -1,0 +1,91 @@
+{
+  "disease_patterns": {
+    "cardiac": {
+      "symptoms": ["chest pain", "shortness of breath", "sweating", "nausea"],
+      "age_group": [40, 100],
+      "typical_spo2": [70, 95],
+      "typical_pulse": [90, 180],
+      "typical_bp": ["140/90", "200/120"],
+      "icu_probability": 0.85,
+      "avg_treatment_time": 120,
+      "recommended_ward": "ICU"
+    },
+    "respiratory": {
+      "symptoms": ["cough", "fever", "difficulty breathing", "fatigue"],
+      "age_group": [0, 100],
+      "typical_spo2": [60, 92],
+      "typical_pulse": [80, 140],
+      "typical_bp": ["110/70", "150/100"],
+      "icu_probability": 0.45,
+      "avg_treatment_time": 90,
+      "recommended_ward": "Ward"
+    },
+    "neurological": {
+      "symptoms": ["headache", "dizziness", "confusion", "vision problems"],
+      "age_group": [20, 100],
+      "typical_spo2": [85, 100],
+      "typical_pulse": [50, 130],
+      "typical_bp": ["100/60", "180/110"],
+      "icu_probability": 0.60,
+      "avg_treatment_time": 180,
+      "recommended_ward": "ICU"
+    },
+    "gastrointestinal": {
+      "symptoms": ["vomiting", "abdominal pain", "diarrhea", "nausea"],
+      "age_group": [0, 100],
+      "typical_spo2": [92, 100],
+      "typical_pulse": [70, 120],
+      "typical_bp": ["90/60", "140/90"],
+      "icu_probability": 0.25,
+      "avg_treatment_time": 60,
+      "recommended_ward": "Ward"
+    }
+  },
+  
+  "historical_outcomes": {
+    "mortality_rates": {
+      "RED": 0.15,
+      "YELLOW": 0.03,
+      "GREEN": 0.005,
+      "BLUE": 0.001
+    },
+    "avg_treatment_times": {
+      "ICU": {
+        "RED": 240,
+        "YELLOW": 180,
+        "GREEN": 120,
+        "BLUE": 60
+      },
+      "Ward": {
+        "RED": 120,
+        "YELLOW": 90,
+        "GREEN": 60,
+        "BLUE": 30
+      }
+    },
+    "readmission_rates": {
+      "cardiac": 0.20,
+      "respiratory": 0.15,
+      "neurological": 0.12,
+      "gastrointestinal": 0.08
+    }
+  },
+  
+  "resource_patterns": {
+    "peak_hours": ["09:00-12:00", "18:00-21:00"],
+    "avg_bed_occupancy": {
+      "ICU": 0.78,
+      "Ward": 0.65
+    },
+    "doctor_efficiency": {
+      "ICU": {
+        "avg_patients_per_shift": 3,
+        "avg_treatment_time": 45
+      },
+      "Ward": {
+        "avg_patients_per_shift": 8,
+        "avg_treatment_time": 20
+      }
+    }
+  }
+}

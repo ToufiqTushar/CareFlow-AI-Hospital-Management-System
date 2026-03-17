@@ -1,0 +1,221 @@
+{
+  "myocardial_infarction": {
+    "symptoms": ["chest pain", "shortness of breath", "sweating", "nausea", "vomiting", "arm pain", "jaw pain", "back pain", "dizziness", "fatigue", "anxiety", "palpitations", "lightheadedness", "indigestion"],
+    "age_group": [40, 100],
+    "typical_spo2": [70, 95],
+    "typical_pulse": [90, 180],
+    "urgency_level": "critical",
+    "typical_bp_range": ["high", "very_high", "low"],
+    "common_triggers": ["exertion", "stress", "cold weather"],
+    "risk_factors": ["smoking", "diabetes", "hypertension", "high_cholesterol", "family_history"]
+  },
+  
+  "pneumonia": {
+    "symptoms": ["cough", "fever", "chills", "shortness of breath", "chest pain", "fatigue", "sweating", "headache", "muscle pain", "confusion", "sputum production", "loss of appetite", "nausea", "rapid breathing"],
+    "age_group": [0, 100],
+    "typical_spo2": [60, 92],
+    "typical_pulse": [100, 140],
+    "urgency_level": "high",
+    "typical_bp_range": ["normal", "low"],
+    "common_triggers": ["infection", "immunocompromised"],
+    "risk_factors": ["age", "smoking", "lung_disease", "hospitalization"]
+  },
+  
+  "stroke": {
+    "symptoms": ["facial drooping", "arm weakness", "speech difficulty", "confusion", "dizziness", "loss of balance", "severe headache", "vision problems", "numbness", "difficulty walking", "trouble swallowing", "coordination problems"],
+    "age_group": [50, 100],
+    "typical_spo2": [85, 100],
+    "typical_pulse": [60, 120],
+    "urgency_level": "critical",
+    "typical_bp_range": ["very_high"],
+    "common_triggers": ["blood clot", "hemorrhage"],
+    "risk_factors": ["hypertension", "atrial_fibrillation", "diabetes", "smoking", "high_cholesterol"]
+  },
+  
+  "appendicitis": {
+    "symptoms": ["abdominal pain", "nausea", "vomiting", "loss of appetite", "fever", "abdominal swelling", "constipation", "diarrhea", "painful urination", "pain that worsens with movement", "rebound tenderness"],
+    "age_group": [10, 50],
+    "typical_spo2": [92, 100],
+    "typical_pulse": [90, 130],
+    "urgency_level": "high",
+    "typical_bp_range": ["normal", "high"],
+    "common_triggers": ["obstruction", "infection"],
+    "risk_factors": ["age_10-30", "family_history", "cystic_fibrosis"]
+  },
+  
+  "asthma_attack": {
+    "symptoms": ["wheezing", "shortness of breath", "chest tightness", "coughing", "rapid breathing", "anxiety", "difficulty speaking", "fatigue", "sweating", "pale skin", "blue lips"],
+    "age_group": [0, 100],
+    "typical_spo2": [60, 92],
+    "typical_pulse": [100, 150],
+    "urgency_level": "high",
+    "typical_bp_range": ["normal", "high"],
+    "common_triggers": ["allergens", "exercise", "cold air", "stress"],
+    "risk_factors": ["allergies", "family_history", "smoking", "obesity"]
+  },
+  
+  "diabetic_ketoacidosis": {
+    "symptoms": ["excessive thirst", "frequent urination", "nausea", "vomiting", "abdominal pain", "weakness", "fatigue", "shortness of breath", "fruity-scented breath", "confusion", "dry mouth", "flushed face"],
+    "age_group": [10, 80],
+    "typical_spo2": [85, 98],
+    "typical_pulse": [100, 140],
+    "urgency_level": "critical",
+    "typical_bp_range": ["low"],
+    "common_triggers": ["infection", "missed insulin", "stress"],
+    "risk_factors": ["type_1_diabetes", "infection", "trauma"]
+  },
+  
+  "sepsis": {
+    "symptoms": ["fever", "chills", "confusion", "shortness of breath", "rapid heart rate", "low blood pressure", "extreme pain", "sweating", "clammy skin", "decreased urination", "dizziness", "fatigue", "nausea"],
+    "age_group": [0, 100],
+    "typical_spo2": [70, 95],
+    "typical_pulse": [120, 160],
+    "urgency_level": "critical",
+    "typical_bp_range": ["very_low"],
+    "common_triggers": ["infection", "surgery", "injury"],
+    "risk_factors": ["weak_immune_system", "chronic_illness", "age", "hospitalization"]
+  },
+  
+  "migraine": {
+    "symptoms": ["severe headache", "nausea", "vomiting", "sensitivity to light", "sensitivity to sound", "blurred vision", "light flashes", "temporary vision loss", "tingling", "dizziness", "fatigue", "neck pain"],
+    "age_group": [15, 60],
+    "typical_spo2": [95, 100],
+    "typical_pulse": [60, 100],
+    "urgency_level": "moderate",
+    "typical_bp_range": ["normal"],
+    "common_triggers": ["stress", "hormones", "foods", "weather"],
+    "risk_factors": ["family_history", "age", "gender_female", "hormonal_changes"]
+  },
+  
+  "gastroenteritis": {
+    "symptoms": ["diarrhea", "nausea", "vomiting", "abdominal pain", "fever", "headache", "muscle aches", "loss of appetite", "dehydration", "weakness", "dizziness", "thirst"],
+    "age_group": [0, 100],
+    "typical_spo2": [92, 100],
+    "typical_pulse": [80, 120],
+    "urgency_level": "moderate",
+    "typical_bp_range": ["normal", "low"],
+    "common_triggers": ["viral infection", "bacterial infection", "food poisoning"],
+    "risk_factors": ["poor_hygiene", "contaminated_food", "weak_immune_system"]
+  },
+  
+  "urinary_tract_infection": {
+    "symptoms": ["painful urination", "frequent urination", "urgency", "cloudy urine", "blood in urine", "pelvic pain", "fever", "chills", "nausea", "back pain", "fatigue"],
+    "age_group": [20, 80],
+    "typical_spo2": [95, 100],
+    "typical_pulse": [70, 110],
+    "urgency_level": "moderate",
+    "typical_bp_range": ["normal"],
+    "common_triggers": ["bacterial infection", "sexual activity", "catheter use"],
+    "risk_factors": ["female", "diabetes", "pregnancy", "menopause"]
+  },
+  
+  "panic_attack": {
+    "symptoms": ["rapid heart rate", "sweating", "trembling", "shortness of breath", "chest pain", "nausea", "dizziness", "chills", "hot flashes", "numbness", "fear of dying", "feeling detached"],
+    "age_group": [15, 50],
+    "typical_spo2": [95, 100],
+    "typical_pulse": [120, 180],
+    "urgency_level": "moderate",
+    "typical_bp_range": ["high"],
+    "common_triggers": ["stress", "phobias", "medications", "caffeine"],
+    "risk_factors": ["family_history", "major_life_stress", "trauma"]
+  },
+  
+  "broken_bone": {
+    "symptoms": ["severe pain", "swelling", "bruising", "deformity", "inability to move", "bone protruding", "tenderness", "numbness", "tingling", "bleeding", "shock"],
+    "age_group": [0, 100],
+    "typical_spo2": [95, 100],
+    "typical_pulse": [80, 130],
+    "urgency_level": "high",
+    "typical_bp_range": ["normal", "low"],
+    "common_triggers": ["trauma", "fall", "accident", "sports injury"],
+    "risk_factors": ["osteoporosis", "age", "contact_sports", "occupational_hazards"]
+  },
+  
+  "anaphylaxis": {
+    "symptoms": ["hives", "itching", "swelling", "shortness of breath", "wheezing", "tight throat", "hoarseness", "nausea", "vomiting", "diarrhea", "dizziness", "fainting", "rapid pulse", "low blood pressure"],
+    "age_group": [0, 100],
+    "typical_spo2": [60, 90],
+    "typical_pulse": [120, 200],
+    "urgency_level": "critical",
+    "typical_bp_range": ["very_low"],
+    "common_triggers": ["foods", "medications", "insect stings", "latex"],
+    "risk_factors": ["allergies", "asthma", "previous_reactions"]
+  },
+  
+  "kidney_stones": {
+    "symptoms": ["severe flank pain", "blood in urine", "nausea", "vomiting", "fever", "chills", "frequent urination", "painful urination", "cloudy urine", "foul-smelling urine", "sweating"],
+    "age_group": [20, 70],
+    "typical_spo2": [92, 100],
+    "typical_pulse": [90, 130],
+    "urgency_level": "high",
+    "typical_bp_range": ["normal", "high"],
+    "common_triggers": ["dehydration", "diet", "medications"],
+    "risk_factors": ["dehydration", "family_history", "obesity", "certain_foods"]
+  },
+  
+  "meningitis": {
+    "symptoms": ["severe headache", "stiff neck", "fever", "confusion", "sensitivity to light", "nausea", "vomiting", "rash", "seizures", "drowsiness", "loss of appetite", "muscle pain"],
+    "age_group": [0, 100],
+    "typical_spo2": [85, 98],
+    "typical_pulse": [100, 140],
+    "urgency_level": "critical",
+    "typical_bp_range": ["normal", "low"],
+    "common_triggers": ["viral infection", "bacterial infection"],
+    "risk_factors": ["age", "community_settings", "weak_immune_system", "lack_of_vaccination"]
+  },
+  
+  "pulmonary_embolism": {
+    "symptoms": ["shortness of breath", "chest pain", "cough", "coughing up blood", "rapid heart rate", "sweating", "fever", "leg swelling", "leg pain", "lightheadedness", "fainting", "blue lips"],
+    "age_group": [30, 100],
+    "typical_spo2": [60, 90],
+    "typical_pulse": [120, 160],
+    "urgency_level": "critical",
+    "typical_bp_range": ["low"],
+    "common_triggers": ["blood clot", "surgery", "immobility"],
+    "risk_factors": ["surgery", "cancer", "pregnancy", "birth_control_pills", "smoking"]
+  },
+  
+  "gallbladder_attack": {
+    "symptoms": ["severe abdominal pain", "nausea", "vomiting", "fever", "chills", "yellowing of skin", "yellowing of eyes", "dark urine", "clay-colored stools", "indigestion", "bloating"],
+    "age_group": [30, 70],
+    "typical_spo2": [92, 100],
+    "typical_pulse": [90, 130],
+    "urgency_level": "high",
+    "typical_bp_range": ["normal", "high"],
+    "common_triggers": ["fatty foods", "large meals"],
+    "risk_factors": ["female", "age_over_40", "pregnancy", "obesity", "rapid_weight_loss"]
+  },
+  
+  "heat_stroke": {
+    "symptoms": ["high body temperature", "confusion", "agitation", "slurred speech", "seizures", "coma", "hot dry skin", "nausea", "vomiting", "rapid breathing", "rapid heart rate", "headache"],
+    "age_group": [0, 100],
+    "typical_spo2": [85, 98],
+    "typical_pulse": [130, 200],
+    "urgency_level": "critical",
+    "typical_bp_range": ["low"],
+    "common_triggers": ["heat exposure", "exertion", "dehydration"],
+    "risk_factors": ["age", "chronic_illness", "medications", "alcohol"]
+  },
+  
+  "hypoglycemia": {
+    "symptoms": ["shakiness", "dizziness", "sweating", "hunger", "fast heartbeat", "confusion", "blurred vision", "headache", "seizures", "loss of consciousness", "anxiety", "irritability"],
+    "age_group": [0, 100],
+    "typical_spo2": [92, 100],
+    "typical_pulse": [100, 150],
+    "urgency_level": "moderate",
+    "typical_bp_range": ["normal", "low"],
+    "common_triggers": ["too much insulin", "missed meals", "excessive exercise"],
+    "risk_factors": ["diabetes", "certain_medications", "alcohol", "critical_illnesses"]
+  },
+  
+  "concussion": {
+    "symptoms": ["headache", "confusion", "amnesia", "dizziness", "ringing in ears", "nausea", "vomiting", "slurred speech", "fatigue", "sensitivity to light", "sensitivity to noise", "balance problems", "mood changes"],
+    "age_group": [5, 80],
+    "typical_spo2": [95, 100],
+    "typical_pulse": [70, 120],
+    "urgency_level": "moderate",
+    "typical_bp_range": ["normal"],
+    "common_triggers": ["head injury", "sports injury", "fall", "accident"],
+    "risk_factors": ["contact_sports", "previous_concussion", "age", "certain_medications"]
+  }
+}

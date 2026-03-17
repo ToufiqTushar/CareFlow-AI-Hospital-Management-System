@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareFlow AI - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 AI Decision Dashboard</h1>
+            <a href="/" class="back-btn">← New Patient</a>
+        </div>
+        
+        <div class="dashboard">
+            <div class="card patient-info">
+                <h2>👤 Patient Information</h2>
+                <div class="info-grid">
+                    <div><strong>Age:</strong> {{ patient.age }}</div>
+                    <div><strong>SPO2:</strong> {{ patient.spo2 }}%</div>
+                    <div><strong>Pulse:</strong> {{ patient.pulse }} bpm</div>
+                    <div><strong>BP:</strong> {{ patient.bp }} mmHg</div>
+                    <div><strong>Symptoms:</strong> {{ patient.symptoms }}</div>
+                </div>
+            </div>
+            
+            <div class="card triage-card">
+                <h2>🚨 Triage Priority</h2>
+                <div class="priority-display priority-{{ priority.level|lower }}">
+                    <div class="priority-level">{{ priority.level }}</div>
+                    <div class="priority-score">Score: {{ priority.score }}/100</div>
+                </div>
+                <p class="recommendation">{{ priority.recommendation }}</p>
+            </div>
+            
+            <div class="card bed-card">
+                <h2>🛏️ Bed Allocation</h2>
+                <div class="allocation-result">
+                    <div class="ward-name">{{ bed[0] }}</div>
+                    <div class="bed-number">Bed #{{ bed[1] + 1 }}</div>
+                </div>
+                <div class="bed-status">
+                    <h3>Current Bed Status:</h3>
+                    {% for ward, status in bed_status.items() %}
+                    <div class="ward-status">
+                        <span class="ward-label">{{ ward }}:</span>
+                        <span class="bed-count">
+                            {{ status.available }} / {{ status.total }} available
+                            ({{ status.occupancy_rate|round(1) }}% occupied)
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="card route-card">
+                <h2>🗺️ Optimal Route</h2>
+                <div class="route-display">
+                    <div class="route-path">
+                        {% for node in route %}
+                            <span class="route-node">{{ node }}</span>
+                            {% if not loop.last %} → {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="route-cost">Total Distance: {{ cost }} units</div>
+                </div>
+                <div class="route-map">
+                    <div class="map-node">ER</div>
+                    <div class="map-connector">↘️</div>
+                    <div class="map-node">{{ bed[0] }}</div>
+                </div>
+            </div>
+            
+            <div class="card staff-card">
+                <h2>👨‍⚕️ Staff Assignment</h2>
+                <div class="doctor-assigned">
+                    <div class="doctor-name">{{ staff.name }}</div>
+                    <div class="doctor-specialty">Specialty: {{ staff.skill }}</div>
+                    <div class="doctor-status">Status: Assigned</div>
+                </div>
+                <div class="assignment-note">
+                    <strong>AI Decision:</strong> Doctor selected based on skill match, 
+                    patient priority, and current workload optimization.
+                </div>
+            </div>
+            
+            <div class="card ai-card">
+                <h2>🤖 AI-Powered Predictions</h2>
+                
+                {% if ai_insights.disease_prediction.top_prediction %}
+                <div class="ai-prediction">
+                    <h3>📊 Likely Condition:</h3>
+                    <div class="prediction-card">
+                        <div class="prediction-header">
+                            <span class="disease-name">{{ ai_insights.disease_prediction.top_prediction.disease|upper }}</span>
+                            <span class="confidence-badge">{{ ai_insights.disease_prediction.confidence|upper }}</span>
+                        </div>
+                        <div class="probability">
+                            Probability: {{ (ai_insights.disease_prediction.top_prediction.probability * 100)|int }}%
+                        </div>
+                        <div class="matched-symptoms">
+                            <strong>Matched Symptoms:</strong>
+                            {% for symptom in ai_insights.disease_prediction.top_prediction.matched_symptoms %}
+                            <span class="symptom-tag">{{ symptom }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <div class="ai-outcomes">
+                    <h3>🎯 Outcome Predictions:</h3>
+                    <div class="outcome-grid">
+                        <div class="outcome-item">
+                            <div class="outcome-label">Estimated Treatment Time</div>
+                            <div class="outcome-value">{{ ai_insights.outcome_prediction.estimated_treatment_time.display }}</div>
+                            <div class="outcome-note">Confidence: {{ ai_insights.outcome_prediction.estimated_treatment_time.confidence }}</div>
+                        </div>
+                        
+                        <div class="outcome-item critical">
+                            <div class="outcome-label">Mortality Risk</div>
+                            <div class="outcome-value">{{ ai_insights.outcome_prediction.mortality_risk.percentage }}%</div>
+                            <div class="outcome-note">Level: {{ ai_insights.outcome_prediction.mortality_risk.level|upper }}</div>
+                        </div>
+                        
+                        <div class="outcome-item">
+                            <div class="outcome-label">Readmission Risk</div>
+                            <div class="outcome-value">{{ ai_insights.outcome_prediction.readmission_risk }}%</div>
+                        </div>
+                        
+                        <div class="outcome-item">
+                            <div class="outcome-label">ICU Transfer Probability</div>
+                            <div class="outcome-value">{{ ai_insights.outcome_prediction.icu_transfer_probability.percentage }}%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recovery-timeline">
+                    <h3>📅 Recovery Timeline:</h3>
+                    <div class="timeline">
+                        {% for milestone in ai_insights.outcome_prediction.recovery_timeline %}
+                        <div class="timeline-item">
+                            <div class="timeline-day">Day {{ milestone.day }}</div>
+                            <div class="timeline-milestone">{{ milestone.milestone }}</div>
+                            <div class="timeline-probability">{{ (milestone.probability * 100)|int }}% likely</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Model Explanation
+                <div class="model-explanation">
+                    <h3>🤖 AI Model Explanation</h3>
+                    <div class="explanation-box">
+                        <p><strong>Model Used:</strong> {{ ai_insights.model_explanation.split('\n')[0] }}</p>
+                        <p><strong>Key Features Analyzed:</strong> 
+                            {% for feature in ai_insights.disease_prediction.features_used %}
+                            <span class="feature-tag">{{ feature }}</span>
+                            {% endfor %}
+                        </p>
+                        <details>
+                            <summary>📊 View Detailed Explanation</summary>
+                            <div class="detailed-explanation">
+                                {% for line in ai_insights.model_explanation.split('\n') %}
+                                <p>{{ line }}</p>
+                                {% endfor %}
+                            </div>
+                        </details>
+                    </div>
+                </div> -->
+                
+                <div class="ai-recommendations">
+                    <h3>💡 AI Recommendations:</h3>
+                    <ul>
+                        {% for recommendation in ai_insights.resource_recommendations %}
+                        <li>{{ recommendation }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card summary-card">
+                <h2>📈 System Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-label">Response Time</div>
+                        <div class="summary-value">Immediate</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Resource Utilization</div>
+                        <div class="summary-value">Optimized</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">AI Confidence</div>
+                        <div class="summary-value">High</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button onclick="window.print()" class="action-btn">🖨️ Print Report</button>
+                    <a href="/reset" class="action-btn reset-btn">🔄 Reset System</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        setInterval(function() {
+            fetch('/bed-status')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Bed status updated:', data);
+                });
+        }, 30000);
+    </script>
+</body>
+</html>
